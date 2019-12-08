@@ -1,5 +1,5 @@
 export class User {
-  name:string;
+  login:string;
   Email:string;
   joined:Date;
 }
