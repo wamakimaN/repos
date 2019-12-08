@@ -1,14 +1,44 @@
-
-<form>
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="User Name" name="username" [(ngModel)]="username"
-      (keyup)="getProfile()">
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <form (ngSubmit)='getProfile()' #goalForm='ngForm'>
+      <div class="form-group">
+        <img class="img-fluid" src="../../assets/github.png" alt="">
+        <input type="text" class="form-control" placeholder="User Name" name="username" [(ngModel)]="username">
+        <button type="submit" class="btn btn-success">Search user</button>
+      </div>
+    </form>
   </div>
-</form>
-<div *ngIf="user">
-  <div class="card">
-    <div class="card-heading">
-      {{user.login}}
+  <div class="col-md-3"></div>
+</div>
+
+<div>
+  <div class="card bd-0" *ngIf="user">
+    <div class="card-header bg-dark">
+      <ul class="nav nav-tabs nav-tabs-for-dark card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link bd-0 active pd-y-8" href="#">user</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link bd-0 tx-gray-light" href="#">repositories</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link bd-0 tx-gray-light" href="#">employment</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-4">
+          <img class="img-thumbnail" src="{{user.avatar_url}}" alt="avatar">
+        </div>
+        <div class="col-md-8">
+          <h5>{{user.login}}</h5>
+          <h6>{{user.name}}</h6>
+          <p>Email: {{user.email}}</p>
+          <p>Blog: {{user.blog}}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
