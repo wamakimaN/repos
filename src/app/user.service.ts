@@ -21,5 +21,8 @@ export class UserService {
     getUser(): Observable<User[]> {
       return this.http.get<User[]>(this.url + this.username).pipe(map( res => res));
     }
+    getRepos(): Observable<Repos[]> {
+      return this.http.get<Repos[]>(this.url + this.username + '/repos').pipe(map( res => res));
+    }
   }
 
