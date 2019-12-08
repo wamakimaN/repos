@@ -9,20 +9,22 @@ import { Observable } from 'rxjs'
 
 export class UserService {
   private username: string;
-  private url = 'https://api.github.com/users/'
-  private clientid = ''
-  
+  private url = 'https://api.github.com/users/';
+  private clientid = '728eb7d221de469a432b435a9883a695087618fa';
+
 
   constructor(private http: HttpClient) {
     this.username = 'wamakimaN';
-    this.clientid = '728eb7d221de469a432b435a9883a695087618fa'
   }
 
-    getUser(): Observable<User[]> {
-      return this.http.get<User[]>(this.url + this.username).pipe(map( res => res));
-    }
-    getRepos(): Observable<Repos[]> {
-      return this.http.get<Repos[]>(this.url + this.username + '/repos').pipe(map( res => res));
-    }
+  getUser(): Observable<User[]> {
+    return this.http.get<User[]>(this.url + this.username + "?client_id=" + this.clientid).pipe(map(res => res));
   }
+  getRepos(): Observable<Repos[]> {
+    return this.http.get<Repos[]>(this.url + this.username + "/repos?client_id=" + this.clientid).pipe(map(res => res));
+  }
+  updateProfile(username: string) {
+    this.username = username;
+  }
+}
 

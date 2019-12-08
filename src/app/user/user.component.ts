@@ -8,10 +8,22 @@ import { UserService } from '../user.service';
 })
 export class UserComponent implements OnInit {
 user:any[];
+repos:any[];
+username:string;
 
   constructor(private userservice:UserService) {
-    this.userservice.getUser().subscribe(user=>{
-      this.user = user;
+    
+   }
+   getProfile(){
+     this.userservice.updateProfile(this.username)
+     this.userservice.getUser().subscribe(user => {
+       console.log(user)
+       this.user = user;
+     })
+     this.userservice.getRepos().subscribe(repos=>{
+       console.log(repos)
+      this.repos = repos;
+     
     })
    }
 

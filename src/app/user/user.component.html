@@ -1,7 +1,14 @@
+
+<form>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="User Name" name="username" [(ngModel)]="username"
+      (keyup)="getProfile()">
+  </div>
+</form>
 <div *ngIf="user">
   <div class="card">
-   <div class="card-heading">
-{{user.login}}
-   </div> 
+    <div class="card-heading">
+      {{user.login}}
+    </div>
   </div>
 </div>
