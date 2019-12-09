@@ -1,5 +1,3 @@
 export class Repos {
-  name:string;
-  description:string;
-  url:string;
+  constructor(public name: string, public description: string, public url: string) { }
 }

@@ -10,17 +10,19 @@ import { Observable } from 'rxjs';
 })
 
 export class UserService {
+  user:User;
   private username: string;
   private url = 'https://api.github.com/users/';
   private clientid = '728eb7d221de469a432b435a9883a695087618fa';
+
 
 
   constructor(private http: HttpClient) {
     this.username = 'wamakimaN';
   }
 
-  getUser(): Observable<User[]> {
-    return this.http.get<User[]>(this.url + this.username + "?client_id=" + this.clientid).pipe(map(res => res));
+  getUser(): Observable<User> {
+    return this.http.get<User>(this.url + this.username + "?client_id=" + this.clientid).pipe(map(res => res));
   }
   getRepos(): Observable<Repos[]> {
     return this.http.get<Repos[]>(this.url + this.username + "/repos?client_id=" + this.clientid).pipe(map(res => res));

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
+import { User } from '../user';
+import { Repos } from '../repos';
+
 
 @Component({
   selector: 'app-user',
@@ -7,8 +10,8 @@ import { UserService } from '../user.service';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-user:any[];
-repos:any[];
+user:User;
+repos:Repos[];
 username:string;
 
   constructor(private userservice:UserService) {
