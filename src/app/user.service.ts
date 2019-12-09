@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { User } from 'src/app/user';
 import { Repos } from 'src/app/repos';
-import {environment } from '../environments/environment';
 import { Observable } from 'rxjs';
 
 @Injectable({
