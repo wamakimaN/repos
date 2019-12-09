@@ -17,11 +17,10 @@ username:string;
    getProfile(){
      this.userservice.updateProfile(this.username)
      this.userservice.getUser().subscribe(user => {
-       console.log(user)
        this.user = user;
      })
      this.userservice.getRepos().subscribe(repos=>{
-       console.log(repos)
+
       this.repos = repos;
      
     })
